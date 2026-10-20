@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WEMINE Arcade</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="http://127.0.0.1:8800/">WEMINE Arcade</a>
+    <h1 id="title">Loading…</h1>
+    <p id="tagline"></p>
+  </header>
+  <main>
+    <section class="stage">
+      <div id="view" tabindex="0" aria-label="Game view. Click to focus controls.">
+        <img id="frame" alt="Game view">
+        <div id="banner" class="banner"></div>
+        <div id="overlay" class="overlay">
+          <h2 id="overlay-title">Ready</h2>
+          <p id="overlay-text">Every round is recorded as robot training data.</p>
+          <button id="start" class="primary">Start round</button>
+        </div>
+      </div>
+      <div class="toolbar">
+        <button id="pause">Pause</button>
+        <button id="end">End round</button>
+        <span id="grip" class="pill">Gripper: open</span>
+        <span id="conn" class="pill">Connecting…</span>
+      </div>
+    </section>
+    <aside>
+      <div class="card">
+        <div class="row"><span>Score</span><strong id="score">0</strong></div>
+        <div class="row"><span>Time</span><strong id="time">0.0 s</strong></div>
+        <div id="hud"></div>
+      </div>
+      <div class="card">
+        <h3>Current action chunk</h3>
+        <div id="chunk" class="chunk"><span class="badge">—</span><p></p></div>
+        <div class="row small"><span>Frames recorded</span><span id="frames">0</span></div>
+        <div class="row small"><span>Training / other chunks</span><span id="chunks">0 / 0</span></div>
+      </div>
+      <div class="card">
+        <h3>Controls</h3>
+        <ul class="controls" id="controls">
+          <li><kbd>W</kbd><kbd>S</kbd> forward / back</li>
+          <li><kbd>A</kbd><kbd>D</kbd> left / right</li>
+          <li><kbd>R</kbd><kbd>F</kbd> or wheel — up / down</li>
+          <li><kbd>Q</kbd><kbd>E</kbd> rotate gripper</li>
+          <li><kbd>Space</kbd> or left click — open / close gripper</li>
+          <li><kbd>Shift</kbd> hold for precision</li>
+          <li id="action-help" hidden><kbd>Enter</kbd> or right click — <span id="action-name"></span></li>
+        </ul>
+      </div>
+      <div class="card" id="saved-card" hidden>
+        <h3>Last saved episode</h3>
+        <p id="saved" class="small"></p>
+      </div>
+    </aside>
+  </main>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
